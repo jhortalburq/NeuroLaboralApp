@@ -1,0 +1,7 @@
+{
+  "name": "NeuroLaboralApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
