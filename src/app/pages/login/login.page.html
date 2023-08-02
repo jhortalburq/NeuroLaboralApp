@@ -1,0 +1,70 @@
+<ion-content>
+
+      <div class="login-header">
+        <img class="logo-img" src="assets/logos/logo.png" alt="">
+      </div>
+      
+       <form [formGroup]="loginForm">
+
+       <ion-grid>
+         <ion-row>
+           <ion-col >
+
+               <ion-item lines="none">
+                   <ion-label position="stacked">Nombre de Usuario</ion-label>
+                   <ion-input type="text" id="username" formControlName="username" placeholder="Ingrese nombre de usuario"></ion-input>
+               </ion-item>
+              
+           </ion-col>
+         </ion-row>
+
+         <ion-row>
+           <ion-col >
+
+               <ion-item lines="none" class="input_password">
+                   <ion-label position="stacked">Contraseña</ion-label>
+                   <ion-input [type]="inputType" name="password" id="password" placeholder="Ingresa tu contraseña" formControlName="password"></ion-input>
+                   
+                   <ion-icon name="eye" (click)="verPassword()"></ion-icon>
+
+               </ion-item>
+
+           </ion-col>
+         </ion-row>
+
+         <ion-row>
+           <ion-col size="6">
+             
+               <ion-item lines="none">
+                 <ion-checkbox checked="false" formControlName="remember"></ion-checkbox> <span class="tc">Recordar</span>
+               </ion-item>
+           </ion-col>
+
+           <ion-col size="6">
+             
+               <ion-item lines="none">
+                 <ion-label class="forget_password" (click)="forgetPassword()">¿Olvidaste tu contraseña?</ion-label>
+               </ion-item>
+           </ion-col>
+
+         </ion-row>
+
+       </ion-grid>
+
+       </form>
+
+</ion-content>
+
+
+<ion-footer>
+
+  <ion-row>
+    <ion-col style="text-align: center">
+
+        <ion-button (click)="onSubmit()" [disabled]="!loginForm.valid || disabled" color="fnl" class="ion-button-submit" fill="solid" >
+            Ingresar
+        </ion-button>
+
+    </ion-col>
+  </ion-row>
+</ion-footer>

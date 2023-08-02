@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border">
+
+  <ion-item lines="none">
+    <ion-img class="logo-img" src="assets/logos/logo2.png"></ion-img>
+    <ion-img class="logo-company" [src]="logo"></ion-img>
+  </ion-item>
+
+  <ion-card class="card-welcome" >
+    <ion-card-content>
+      Bienvenido <b>{{ first_name }}</b>, para iniciar nuestra evaluación, completa tus datos por favor.
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-header>
+
+<ion-content>
+
+
+  <form [formGroup]="completeForm" (ngSubmit)="onSubmit()">
+
+
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-input type="text"  placeholder="Nombres" [value]="profile.first_name" disabled="true"></ion-input>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="Apellidos" [value]="profile.last_name" disabled="true"></ion-input>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-input type="text" placeholder="Correo Electrónico" [value]="profile.email" disabled="true"></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card>
+      <ion-card-content>
+
+        <ion-item lines="none">
+          <ion-select placeholder="Edad" formControlName="range_age">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_range_age">{{ item.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="Sexo" formControlName="gender">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_gender">{{ item.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="País de Origen" formControlName="country_origin">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_country_origin">{{ item.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="Profesión" formControlName="profession">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_profession">{{ item.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="Estado Civil" formControlName="civil_status">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_civil_status">{{ item.name }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-row>
+      <ion-col style="text-align: center">
+        <ion-button type="submit" [disabled]="!completeForm.valid" color="fnl" class="ion-button-submit" fill="solid" >
+          Guardar
+        </ion-button>
+  
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+</ion-content>

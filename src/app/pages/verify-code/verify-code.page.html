@@ -1,0 +1,60 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="translucent">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <div class="login-header">
+    <img class="logo-img" src="assets/logos/logo.png" alt="">
+  </div>
+  
+
+    <h4>Ingrese el Código de Validación enviado al Email</h4>
+
+
+   <ion-grid>
+     
+      <ion-row class=>
+        <ion-col size="12">
+
+            <code-input #codeInput 
+                        [isCodeHidden]="false"
+                        [isNonDigitsCode]="false"
+                        [codeLength]="4"
+                        (codeChanged)="onCodeChanged($event)"
+                        (codeCompleted)="onCodeCompleted($event)">
+            </code-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+      
+        <ion-col size="12">
+          <ion-item lines="none">
+                  <ion-label class="resend"><span class="bold" (click)="solicitarCodigo()">Volver a solicitar código</span></ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+   </ion-grid>
+
+
+</ion-content>
+
+<ion-footer>
+
+  <ion-row>
+    <ion-col style="text-align: center">
+
+        <ion-button (click)="onSubmit()" [disabled]="disabled" color="fnl" class="ion-button-submit" fill="solid" >
+          Verificar
+        </ion-button>
+
+    </ion-col>
+  </ion-row>
+</ion-footer>

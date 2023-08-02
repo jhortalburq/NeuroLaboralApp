@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border">
+
+  <ion-item lines="none">
+    <ion-img class="logo-img" src="assets/logos/logo2.png"></ion-img>
+    <ion-img class="logo-company" src="assets/logos/logo2.png"></ion-img>
+  </ion-item>
+  
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+        <h1>Califica la Evaluación</h1>
+
+        <div>
+          <ion-icon name="star" *ngFor="let num of [1,2,3,4,5]" (click)="rate(num)" [ngStyle]="{'color': getColor(num)}"></ion-icon>
+        </div>
+
+        
+        <ion-row>
+            <ion-col>1. SIN CAMBIOS</ion-col>
+            <ion-col>2. ALGO MEJOR</ion-col>
+            <ion-col>3. MEJOR</ion-col>
+            <ion-col>4. MUCHO MEJIOR</ion-col>
+            <ion-col>5. EXCELENTE</ion-col>
+        </ion-row>
+    </ion-card-content>
+
+
+  </ion-card>
+  
+</ion-content>
+
+<ion-footer>
+
+  <ion-row>
+    <ion-col style="text-align: center">
+
+        <ion-button (click)="onSubmit()" [disabled]="disabled" color="fnl" class="ion-button-submit" fill="solid" >
+            Enviar
+        </ion-button>
+
+    </ion-col>
+  </ion-row>
+</ion-footer>

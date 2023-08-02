@@ -1,0 +1,95 @@
+<ion-header class="ion-no-border">
+
+  <ion-item lines="none">
+    <ion-img class="logo-img" src="assets/logos/logo2.png"></ion-img>
+    <ion-img class="logo-company" [src]="logo"></ion-img>
+  </ion-item>
+
+  <ion-card class="card-welcome" >
+    <ion-card-content>
+      Bienvenido <b>{{ first_name }}</b>, para iniciar nuestra evaluación, completa tus datos por favor.
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-header>
+
+<ion-content>
+
+
+  <form [formGroup]="completeForm" (ngSubmit)="onSubmit()">
+
+
+    <ion-card>
+      <ion-card-content>
+
+        <ion-item lines="none">
+          <ion-select placeholder="Rubro de la Empresa" formControlName="business_category">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_business_category">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="Área laboral o Unidad Organizativa" formControlName="work_area">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_work_area">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="Cargo que ocupa actualmente" formControlName="position_job">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_position_job">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="Nivel Jerárquico" formControlName="hierarchical_level">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_hierarchical_level">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      
+        <ion-item lines="none">
+          <ion-select placeholder="Nivel de responsabilidad" formControlName="responsability_level">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_responsability_level">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-select placeholder="Nivel de presión laboral" formControlName="stress_level">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_stress_level">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-select placeholder="Competencias a mejorar" formControlName="skill_improve">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_skill_improve">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-select placeholder="Objetivos a alcanzar" formControlName="goal_achieve">
+            <ion-select-option [value]="item.id" *ngFor="let item of choices_goal_achieve">{{ item.name }}</ion-select-option>
+
+          </ion-select>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-row>
+      <ion-col style="text-align: center">
+        <ion-button type="submit" [disabled]="!completeForm.valid" color="fnl" class="ion-button-submit" fill="solid" >
+          Guardar
+        </ion-button>
+  
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+</ion-content>

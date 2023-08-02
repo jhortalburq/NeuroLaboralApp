@@ -1,0 +1,74 @@
+<ion-header class="ion-no-border">
+
+  <ion-item lines="none">
+    <ion-img class="logo-img" src="assets/logos/logo2.png"></ion-img>
+    <ion-img class="logo-company" src="assets/logos/logo2.png"></ion-img>
+  </ion-item>
+  
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager="false" [options]="slideOpts" #mySlider>
+
+    <ion-slide>
+      <ion-card>
+        <ion-card-content>
+          <ion-item lines="none">
+            <h1>DÍA {{ dia }}</h1>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-button routerLink="/home">
+                <ion-icon name="arrow-back-outline"></ion-icon> Anterior</ion-button>
+              <ion-button (click)="swipeNext()">
+                <ion-icon name="arrow-forward-outline" slot="end"></ion-icon> Siguiente</ion-button>
+            </ion-item>
+        </ion-card-content>
+
+      </ion-card>
+
+    </ion-slide>
+    
+    
+    <ion-slide *ngFor="let item of questions">
+      <ion-card>
+        <ion-card-content>
+            <ion-item class="description" lines="none">
+                <h1>{{ item.description }}</h1>
+            </ion-item>
+
+            <ion-item class="actions" lines="none">
+              <ion-button (click)="swipePrev()">
+                <ion-icon name="arrow-back-outline"></ion-icon> Anterior
+              </ion-button>
+              <ion-img src="assets/parlante.png"></ion-img>
+              <ion-button (click)="swipeNext()">
+                <ion-icon name="arrow-forward-outline" slot="end"></ion-icon> Siguiente
+              </ion-button>
+            </ion-item>
+        </ion-card-content>
+
+      </ion-card>
+
+    </ion-slide>
+    
+
+    <ion-slide >
+      <ion-card>
+        <ion-card-content>
+          <ion-item lines="none">
+            <h1>GRACIAS</h1>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-button (click)="finalizar()">
+              <ion-icon name="arrow-forward-outline" slot="end"></ion-icon> Finalizar
+            </ion-button>
+          </ion-item>
+        </ion-card-content>
+
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

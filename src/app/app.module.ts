@@ -7,10 +7,23 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
+import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
+
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [
+    BrowserModule, 
+    IonicModule.forRoot(), 
+    AppRoutingModule
+  ],
+  providers: [
+    NativeStorage,
+    HTTP,
+    ScreenOrientation,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
