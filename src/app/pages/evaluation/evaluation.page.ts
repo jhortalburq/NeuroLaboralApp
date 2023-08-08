@@ -15,6 +15,7 @@ export class EvaluationPage implements OnInit {
   @ViewChild('mySlider') slides!: IonSlides;
 
   questions: any = [];  
+  
   logo: string = '';
 
   dia: any = '';
@@ -34,11 +35,16 @@ export class EvaluationPage implements OnInit {
   ngOnInit() {
       this.dia = this.route.snapshot.params['dia'];
       this.getQuestionProfile()
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
       this.logo = this.apiService.url_logo_company;
   }
 
+  ionViewWillEnter() {
+    console.log('entrando')
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  }
+
   ionViewWillLeave() {
+    console.log('saliendo')
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
@@ -52,7 +58,10 @@ export class EvaluationPage implements OnInit {
   
   getQuestionProfile() {
     this.apiService.getQuestionProfile(this.dia)
-                    .then( (res: any) => this.questions = res['results'])
+                    .then( (res: any) => {
+                      console.log(res['results'])
+                      this.questions = res['results']
+                    })
   }
 
   finalizar() {

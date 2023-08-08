@@ -14,7 +14,7 @@
     <ion-slide>
       <ion-card>
         <ion-card-content>
-          <ion-item lines="none">
+          <ion-item class="description" lines="none">
             <h1>DÍA {{ dia }}</h1>
             </ion-item>
 
@@ -35,14 +35,16 @@
       <ion-card>
         <ion-card-content>
             <ion-item class="description" lines="none">
-                <h1>{{ item.description }}</h1>
+
+                <ion-img [src]="item.image" class="imagen" *ngIf="item.image"></ion-img>
+                <h1 *ngIf="!item.image">{{ item.description }}</h1>
             </ion-item>
 
             <ion-item class="actions" lines="none">
               <ion-button (click)="swipePrev()">
                 <ion-icon name="arrow-back-outline"></ion-icon> Anterior
               </ion-button>
-              <ion-img src="assets/parlante.png"></ion-img>
+              <ion-img class="parlante" src="assets/parlante.png"></ion-img>
               <ion-button (click)="swipeNext()">
                 <ion-icon name="arrow-forward-outline" slot="end"></ion-icon> Siguiente
               </ion-button>

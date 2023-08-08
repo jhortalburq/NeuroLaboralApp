@@ -60,7 +60,6 @@ export class HomePage {
               {
                 text: `DIA ${this.dias[i].day} `,
                 handler: () => {
-                  console.log(this.dias[i].day)
                   this._router.navigate(['/evaluation', 'dia', this.dias[i].day])
                 }
               },

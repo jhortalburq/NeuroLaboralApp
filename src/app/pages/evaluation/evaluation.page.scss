@@ -15,16 +15,15 @@ ion-header{
         color: #fff
     }
 
-
     .logo-img{
         display: block;
-        width: 15%;
+        width: 10%;
     }
 
 
     .logo-company{
         display: block;
-        width: 15%;
+        width: 10%;
         margin: 0 0 0 auto;
     }
 
@@ -33,10 +32,10 @@ ion-header{
 ion-content{
     --background: transparent;
 
-    --padding-top: 1.5rem;
+    --padding-top: .5rem;
     --padding-start: 1rem;
     --padding-end: 1.5em;
-    --padding-bottom: 1.5rem;
+    --padding-bottom: .5rem;
 
     ion-slides {
         height: 100%;
@@ -64,7 +63,14 @@ ion-content{
 
     ion-img{
         margin: 0 auto;
-        height: 80px;
+    }
+
+    .imagen{
+        height: 40vh;
+    }
+
+    .parlante{
+        height: 60px;
     }
 
     ion-item ion-button{
@@ -76,25 +82,40 @@ ion-content{
         flex-direction: column;
         margin: 0 !important;
         width: 100%;
+        height: 100%;
         box-shadow: none !important;
     }
 
     .actions{
-        margin-top: 50px;
+        // margin-top: 50px;
     }
- 
+
 
     @media screen and (orientation:landscape) {
         .description{
-                height: 20vh;
+                height: 50vh;
                 overflow-y: auto;
-            }
+                display: flex;
+                justify-content: center
         }
 
+        img{
+            width: 30%;
+            margin: auto;
+        }
+    }
+
     @media screen and (orientation:portrait) {
-    .description{
-            height: 50vh;
-            overflow-y: auto;
+        .description{
+                height: 75vh;
+                overflow-y: auto;
+                display: flex;
+                justify-content: center
+        }
+
+
+        img{
+            width: 100%;
         }
     }
 }
