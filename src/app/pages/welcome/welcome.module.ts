@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EvaluationPageRoutingModule } from './evaluation-routing.module';
+import { WelcomePageRoutingModule } from './welcome-routing.module';
 
-import { EvaluationPage } from './evaluation.page';
+import { WelcomePage } from './welcome.page';
 import { ChatBotModule } from '../chat-bot/chat-bot.module';
 
 @NgModule({
@@ -15,8 +15,8 @@ import { ChatBotModule } from '../chat-bot/chat-bot.module';
     FormsModule,
     IonicModule,
     ChatBotModule,
-    EvaluationPageRoutingModule
+    WelcomePageRoutingModule
   ],
-  declarations: [EvaluationPage]
+  declarations: [WelcomePage]
 })
-export class EvaluationPageModule {}
+export class WelcomePageModule {}

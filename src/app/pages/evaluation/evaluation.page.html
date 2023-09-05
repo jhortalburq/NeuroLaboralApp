@@ -1,15 +1,34 @@
-<ion-header class="ion-no-border">
+<!-- <ion-header class="ion-no-border">
 
   <ion-item lines="none">
     <ion-img class="logo-img" src="assets/logos/logo2.png"></ion-img>
     <ion-img class="logo-company" src="assets/logos/logo2.png"></ion-img>
   </ion-item>
   
+</ion-header> -->
+
+<ion-header class="ion-no-border">
+
+  <ion-item lines="none">
+    <ion-img class="logo-img" src="assets/logos/fnl.png"></ion-img>
+    <ion-img class="divisor-img" src="assets/icon/divisor.png"></ion-img>
+    <div class="text-header">
+      <p class="text-1">Días faltantes hasta llegar a la meta semanal</p>
+      <p class="text-2">{{ profile.remaining }} Días</p>
+    </div>
+  </ion-item>
+  
 </ion-header>
 
 
+
 <ion-content>
-  <ion-slides pager="false" [options]="slideOpts" #mySlider>
+  <ion-slides 
+              pager="false" 
+              [options]="slideOpts" 
+              #mySlider 
+              (ionSlideDidChange)="slideDidChange(slides)"
+              >
 
     <ion-slide>
       <ion-card>
@@ -19,9 +38,9 @@
             </ion-item>
 
             <ion-item lines="none">
-              <ion-button routerLink="/home">
+              <ion-button routerLink="/home"  color="fnl">
                 <ion-icon name="arrow-back-outline"></ion-icon> Anterior</ion-button>
-              <ion-button (click)="swipeNext()">
+              <ion-button (click)="swipeNext()"  color="fnl">
                 <ion-icon name="arrow-forward-outline" slot="end"></ion-icon> Siguiente</ion-button>
             </ion-item>
         </ion-card-content>
@@ -41,11 +60,14 @@
             </ion-item>
 
             <ion-item class="actions" lines="none">
-              <ion-button (click)="swipePrev()">
+              <ion-button (click)="swipePrev()"  color="fnl">
                 <ion-icon name="arrow-back-outline"></ion-icon> Anterior
               </ion-button>
-              <ion-img class="parlante" src="assets/parlante.png"></ion-img>
-              <ion-button (click)="swipeNext()">
+
+              <ion-icon class="parlante" (click)="playAudio(item.description)"  name="volume-high-outline" *ngIf="!play"></ion-icon>
+              <ion-icon class="parlante" (click)="stopAudio()"  name="volume-mute-outline" *ngIf="play"></ion-icon>
+
+              <ion-button (click)="swipeNext()"  color="fnl">
                 <ion-icon name="arrow-forward-outline" slot="end"></ion-icon> Siguiente
               </ion-button>
             </ion-item>
@@ -64,7 +86,7 @@
           </ion-item>
 
           <ion-item lines="none">
-            <ion-button (click)="finalizar()">
+            <ion-button (click)="finalizar()"  color="fnl">
               <ion-icon name="arrow-forward-outline" slot="end"></ion-icon> Finalizar
             </ion-button>
           </ion-item>
@@ -73,4 +95,10 @@
       </ion-card>
     </ion-slide>
   </ion-slides>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+    <ion-fab-button color="fnl" (click)="chatModal()">
+      <ion-img class="bot-img" src="assets/icon/bot.png"></ion-img>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

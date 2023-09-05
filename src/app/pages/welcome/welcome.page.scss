@@ -1,35 +1,3 @@
-// ion-header{
-//     --background: transparent;
-
-//     ion-item{
-//         --padding-top: 1.5rem;
-//         --background: transparent;
-//     }
-
-//     ion-card{
-//         --background: #67509e;
-//     }
-
-//     ion-card-content{
-//         text-align: center;
-//         color: #fff
-//     }
-
-
-//     .logo-img{
-//         display: block;
-//         width: 15%;
-//     }
-
-
-//     .logo-company{
-//         display: block;
-//         width: 15%;
-//         margin: 0 0 0 auto;
-//     }
-
-// }
-
 ion-header{
     --background: transparent;
   
@@ -100,85 +68,61 @@ ion-header{
     }
 }
 
-
 ion-content{
     --background: transparent;
 
-    --padding-top: 1.5rem;
+    --padding-top: 3.5rem;
     --padding-start: 1rem;
     --padding-end: 1.5em;
     --padding-bottom: 1.5rem;
 
 
-    ion-card, ion-item{
-        --background: #transparent;
+    h2{
+        color: #fff;
         text-align: center;
-        --padding-top: 0rem;
-        --padding-start: 0rem;
-    }
-
-    ion-card-content {
-        width: 100%!important;
-    }
-
-    ion-card-content{
-        text-align: center;
-        font-weight: bold;
-        color: #fff;        
-        margin: 0 auto;
         font-size: 1.5rem;
+        padding: 5px;
     }
 
-    ion-card{
-        display: flex;
-        flex-direction: column;
-        margin: 0 !important;
-        width: 100%;
-        box-shadow: none !important;
-    }
 
-    .actions{
-        margin-top: 50px;
-    }
- 
-    ion-col{
-        margin-top: 0.5rem;
+    .bienvenida{
+        background: url('../../../assets/circulo.png') no-repeat center center fixed;
+        background-size: 100%;
+        margin: 0 auto;
+        height: 50vh;
+        width: 50vh;
+        display: table-cell;
+        text-align: center;
         vertical-align: middle;
-        font-size: 0.6rem;
+    }
+
+    .frase{
+        font-size: 1.2rem;
+        text-align: center;
     }
 
     @media screen and (orientation:landscape) {
-        .description{
-                height: 20vh;
-                overflow-y: auto;
+        --padding-top: 1.5rem;
+        --padding-start: 35%;
+
+        .bienvenida{
+            margin: 0 auto;
+            height: 50vh;
+            width: 50vh;
         }
 
-
-        ion-icon{
-            margin-top: 1rem;
-            padding: 20px;
+        h2{
+            font-size: 1rem;
+            padding: 5px;
         }
 
+        .frase{
+            font-size: 0.8rem;
+        }  
     }
-
-    @media screen and (orientation:portrait) {
-        
-        --padding-top: 3.5rem;
-
-        .description{
-                height: 50vh;
-                overflow-y: auto;
-        }
-
-        ion-icon{
-            margin-top: 1rem;
-            padding: 10px;
-        }
-
-    }
-
 
     .bot-img{
         width: 80%;
     }
 }
+

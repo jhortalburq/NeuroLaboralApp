@@ -9,7 +9,8 @@ import {
 import { Router } from '@angular/router';
 
 import { ApiService } from '../../services/api.service';
-
+import { ModalController } from '@ionic/angular';
+import { ChatComponent } from '../chat-bot/chat/chat.component';
 
 @Component({
   selector: 'app-complete-company',
@@ -46,6 +47,7 @@ export class CompleteCompanyPage implements OnInit {
 
   constructor(
     private _router: Router,
+    public modalController: ModalController,
     private apiService: ApiService,
     ) { }
 
@@ -123,5 +125,21 @@ export class CompleteCompanyPage implements OnInit {
                         console.log('grabado')
                         this._router.navigate(['/home']);
                    })
+  }
+
+  async chatModal() {
+    console.log('ssss')
+    const modal = await this.modalController.create({
+      component: ChatComponent,
+      componentProps: {
+      }
+    });
+
+    modal.onDidDismiss().then((data) => {
+      // this.getData(this.url);
+      console.log('cerrandooo')
+    });
+
+    return await modal.present();
   }
 }

@@ -130,7 +130,7 @@ export class LoginPage implements OnInit {
                 } else if (!res['results'][i]['completed_company']) {
                   this._router.navigate(['/complete-company']);
                 } else {
-                  this._router.navigate(['/home']);
+                  this._router.navigate(['/welcome']);
                 }
               }
 

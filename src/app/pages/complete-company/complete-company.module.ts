@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CompleteCompanyPageRoutingModule } from './complete-company-routing.module';
 
 import { CompleteCompanyPage } from './complete-company.page';
+import { ChatBotModule } from '../chat-bot/chat-bot.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { CompleteCompanyPage } from './complete-company.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    ChatBotModule,
     CompleteCompanyPageRoutingModule
   ],
   declarations: [CompleteCompanyPage]

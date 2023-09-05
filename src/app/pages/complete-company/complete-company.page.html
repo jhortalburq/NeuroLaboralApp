@@ -1,4 +1,4 @@
-<ion-header class="ion-no-border">
+<!-- <ion-header class="ion-no-border">
 
   <ion-item lines="none">
     <ion-img class="logo-img" src="assets/logos/logo2.png"></ion-img>
@@ -12,7 +12,20 @@
   </ion-card>
 
 
+</ion-header> -->
+
+<ion-header class="ion-no-border">
+
+  <ion-item lines="none">
+    <ion-img class="logo-img" src="assets/logos/fnl.png"></ion-img>
+    <ion-img class="divisor-img" src="assets/icon/divisor.png"></ion-img>
+    <ion-img class="logo-img" [src]="logo"></ion-img>
+  </ion-item>
+  
+  <h1 class="welcome">Bienvenido <b>{{ first_name }}</b>, para iniciar nuestra evaluación, completa tus datos por favor.</h1>
+
 </ion-header>
+
 
 <ion-content>
 
@@ -91,5 +104,12 @@
     </ion-row>
 
   </form>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+    <ion-fab-button color="fnl" (click)="chatModal()">
+      <ion-img class="bot-img" src="assets/icon/bot.png"></ion-img>
+    </ion-fab-button>
+  </ion-fab>
+
 
 </ion-content>

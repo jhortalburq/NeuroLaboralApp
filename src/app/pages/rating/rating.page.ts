@@ -2,10 +2,10 @@ import { Component, OnInit,  } from '@angular/core';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { ScreenOrientation } from '@awesome-cordova-plugins/screen-orientation/ngx';
-import { IonSlides } from '@ionic/angular';
-import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 import { ApiService } from '../../services/api.service';
 
+import { ModalController } from '@ionic/angular';
+import { ChatComponent } from '../chat-bot/chat/chat.component';
 
 enum COLORS {
   GREY = '#E0E0E0',
@@ -22,6 +22,7 @@ enum COLORS {
 export class RatingPage implements OnInit {
 
   rating: number = 0;
+  profile: any = {};
 
   disabled: boolean = true;
   dia: any = '';
@@ -29,6 +30,7 @@ export class RatingPage implements OnInit {
   constructor(
       private screenOrientation: ScreenOrientation,
       private _router: Router,
+      public modalController: ModalController,
       public route: ActivatedRoute,
       private apiService: ApiService,
   ) { }
@@ -36,7 +38,17 @@ export class RatingPage implements OnInit {
 
   ngOnInit() {
       this.dia = this.route.snapshot.params['dia'];
+      this.getProfile();
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
+  }
+
+  getProfile() {
+    this.apiService.getProfile()
+                  .then((res: any) => {
+                    for (let i = 0; i < res['results'].length; i++) {
+                        this.profile = res['results'][i];
+                    }
+                  })
   }
 
   ionViewWillLeave() {
@@ -84,4 +96,19 @@ export class RatingPage implements OnInit {
       }
   }
 
+  async chatModal() {
+    console.log('ssss')
+    const modal = await this.modalController.create({
+      component: ChatComponent,
+      componentProps: {
+      }
+    });
+
+    modal.onDidDismiss().then((data) => {
+      // this.getData(this.url);
+      console.log('cerrandooo')
+    });
+
+    return await modal.present();
+  }
 }

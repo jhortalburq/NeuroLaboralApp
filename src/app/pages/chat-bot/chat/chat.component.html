@@ -1,0 +1,65 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="fnl">
+    <ion-buttons slot="start">
+        <ion-button (click)="closeModal()">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+    </ion-buttons>
+   <ion-title>CHAT SOPORTE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-text color="medium" text-center>
+      <p class="inicio">Ingreso a este chat como {{ profile.first_name }}</p>
+    </ion-text>
+    <ion-row *ngFor="let message of messages">
+ 
+      <ion-col size="9" *ngIf="message.user !== profile.id" class="message other-message">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <ion-img class="bot-img" src="assets/icon/bot.png"></ion-img>
+          </ion-avatar>
+            <ion-label>Asistente Virtual FNL</ion-label>
+          </ion-item>
+          
+        <span [innerHTML]="message.msg"></span>
+        <div class="time" text-right><br>{{ message.createdAt | date: "dd/MM/yyyy, h:mm a" }}</div>
+      </ion-col>
+ 
+      <ion-col offset="3" size="9" *ngIf="message.user === profile.id" class="message my-message">
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+              <img [src]="profile.avatar" />
+            </ion-avatar>
+            <ion-label>{{ message.username }}</ion-label>
+          </ion-item>
+          
+        <span [innerHTML]="message.msg"></span>
+
+        <div class="time" text-right><br>{{ message.createdAt | date: "dd/MM/yyyy, h:mm a" }}</div>
+      </ion-col>
+ 
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-row align-items-center>
+      <ion-col size="10">
+        <ion-textarea placeholder="Ingrese un texto" auto-grow class="message-input" rows="1" [(ngModel)]="message"></ion-textarea>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" fill="clear" color="primary" [disabled]="message === ''" class="msg-btn"
+          (click)="sendMessage()">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

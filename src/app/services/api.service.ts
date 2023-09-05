@@ -109,8 +109,6 @@ export class ApiService {
                               }).catch(this.handleError);
         }
 
-
-
       getProfile( ) {
             this.http.setHeader('*', 'Accept', 'application/json', );
             this.http.setHeader('*', 'Content-Type', 'application/json');
@@ -125,7 +123,27 @@ export class ApiService {
                               }).catch(this.handleError);
         }
 
+        setProfileAvatar( id: number, base64: any) {
+            this.http.setHeader('*', 'Accept', 'application/json', );
+            this.http.setHeader('*', 'Content-Type', 'application/json');
+            this.http.setHeader('*', 'Authorization', 'Bearer ' + this.token );
+      
+            return this.http.post(`${this.url_api}profiles/profile/${id}/avatar/`, {base64: base64}, {})
+                            .then(( res: any) => {
+                                    return JSON.parse(res['data']);
+                              }).catch(this.handleError);
+        }
 
+        sendMessage(user_id: number, message: string, chatId?: number) {
+            this.http.setHeader('*', 'Accept', 'application/json', );
+            this.http.setHeader('*', 'Content-Type', 'application/json');
+            this.http.setHeader('*', 'Authorization', 'Bearer ' + this.token );
+      
+            return this.http.post(`${this.url_api}soporte/chat/`, {profile: user_id, chatId:chatId, message: message}, {})
+                            .then(( res: any) => {
+                                    return JSON.parse(res['data']);
+                              }).catch(this.handleError);  
+        }
 
         getUserProfile( ) {
             this.http.setHeader('*', 'Accept', 'application/json', );
@@ -343,6 +361,28 @@ export class ApiService {
                               }).catch(this.handleError);
         }
 
+        
+        startEvaluation(profile_id: number, evaluation_id: number) {
+            this.http.setHeader('*', 'Accept', 'application/json', );
+            this.http.setHeader('*', 'Content-Type', 'application/json');
+
+                  return this.http.post(`${environment.apiUrl}/api/v1/evaluation/evaluation-profile/`,  { profile: profile_id, evaluation: evaluation_id }, {})
+                                    .then(( res: any) => {
+                                          let data = JSON.parse(res.data);
+                                          return data;
+                                    }).catch(this.handleError);
+        }
+
+        finishEvaluation(evaluation: any) {
+            this.http.setHeader('*', 'Accept', 'application/json', );
+            this.http.setHeader('*', 'Content-Type', 'application/json');
+
+                  return this.http.patch(`${environment.apiUrl}/api/v1/evaluation/evaluation-profile/${evaluation}/`,  {}, {})
+                                    .then(( res: any) => {
+                                          let data = JSON.parse(res.data);
+                                          return data;
+                                    }).catch(this.handleError);
+        }
 
       private handleError(error: any): Promise<any> {
             return Promise.reject(

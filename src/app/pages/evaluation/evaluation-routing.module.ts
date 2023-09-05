@@ -5,7 +5,7 @@ import { EvaluationPage } from './evaluation.page';
 
 const routes: Routes = [
   {
-    path: 'dia/:dia',
+    path: 'dia/:dia/:evaluation',
     component: EvaluationPage
   }
 ];

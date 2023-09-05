@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CompleteProfilePageRoutingModule } from './complete-profile-routing.module';
 
 import { CompleteProfilePage } from './complete-profile.page';
+import { ChatBotModule } from '../chat-bot/chat-bot.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { CompleteProfilePage } from './complete-profile.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    ChatBotModule,
     CompleteProfilePageRoutingModule
   ],
   declarations: [CompleteProfilePage]

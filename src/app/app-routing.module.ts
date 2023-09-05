@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/complete-company/complete-company.module').then( m => m.CompleteCompanyPageModule)
   },
   {
-    path: 'choose-avatar',
-    loadChildren: () => import('./pages/choose-avatar/choose-avatar.module').then( m => m.ChooseAvatarPageModule)
-  },
-  {
     path: 'evaluation',
     loadChildren: () => import('./pages/evaluation/evaluation.module').then( m => m.EvaluationPageModule)
   },
@@ -46,6 +42,10 @@ const routes: Routes = [
   {
     path: 'rating',
     loadChildren: () => import('./pages/rating/rating.module').then( m => m.RatingPageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
   },
 ];
 

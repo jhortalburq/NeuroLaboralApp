@@ -1,32 +1,89 @@
+
 ion-header{
     --background: transparent;
-
+  
     ion-item{
-        --padding-top: 2.5rem;
         --background: transparent;
     }
-
-    ion-card{
-        --background: #67509e;
-    }
-
-    ion-img{
+  
+    .logo-img{
         display: block;
         width: 35%;
         margin: 0 auto;
     }
-
-    ion-card-content{
-        text-align: center;
-        color: #fff
+  
+    .divisor-img{
+        display: block;
+        width: 20%;
+        margin: 0 auto;
     }
-
-}
+  
+    .text-header{
+        text-align: right;
+        width: 45%;
+    }
+  
+    .text-1{
+        font-size: 0.8rem;
+        color: #fff;
+    }
+  
+    .text-2{
+        font-size: 1.6rem;
+        margin-top: -10px;
+        color: #fff;
+        font-weight: bold;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+  
+  
+    h1{
+      color: #fff;
+      text-align: center;
+      background-color: #67509e;
+      width: 100%;
+      font-size: 1rem;
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+  
+  
+    @media screen and (orientation:landscape) {
+        .logo-img{
+            display: block;
+            width: 15%;
+            margin: 0 auto;
+        }
+    
+        .divisor-img{
+            display: block;
+            width: 10%;
+            margin: 0 auto;
+        }
+    
+        .text-header{
+            text-align: right;
+            width: 65%;
+        }
+    
+        .text-1{
+            font-size: 0.8rem;
+            color: #fff;
+        }
+    
+        .text-2{
+            font-size: 1.6rem;
+            margin-top: -10px;
+            color: #fff;
+            font-weight: bold;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    }
+  }
 
 ion-content{
     --background: transparent;
 
-    --padding-top: 1rem;
     --padding-start: 1rem;
     --padding-end: 1.5em;
     --padding-bottom: 1.5rem;
@@ -71,4 +128,8 @@ ion-content{
         font-size: 0.8rem;
     }
 
+
+    .bot-img{
+        width: 80%;
+    }
 }

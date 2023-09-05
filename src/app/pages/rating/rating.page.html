@@ -1,12 +1,15 @@
 <ion-header class="ion-no-border">
 
   <ion-item lines="none">
-    <ion-img class="logo-img" src="assets/logos/logo2.png"></ion-img>
-    <ion-img class="logo-company" src="assets/logos/logo2.png"></ion-img>
+    <ion-img class="logo-img" src="assets/logos/fnl.png"></ion-img>
+    <ion-img class="divisor-img" src="assets/icon/divisor.png"></ion-img>
+    <div class="text-header">
+      <p class="text-1">Días faltantes hasta llegar a la meta semanal</p>
+      <p class="text-2">{{ profile.remaining }} Días</p>
+    </div>
   </ion-item>
   
 </ion-header>
-
 
 <ion-content>
 
@@ -30,6 +33,13 @@
 
 
   </ion-card>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="start">
+    <ion-fab-button color="fnl" (click)="chatModal()">
+      <ion-img class="bot-img" src="assets/icon/bot.png"></ion-img>
+    </ion-fab-button>
+  </ion-fab>
+
   
 </ion-content>
 
