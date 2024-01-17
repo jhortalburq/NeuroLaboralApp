@@ -34,7 +34,7 @@ export class HomePage {
     private _router: Router,
     private actionSheetCtrl: ActionSheetController,
     public modalController: ModalController,
-    private androidPermissions: AndroidPermissions,
+    public androidPermissions: AndroidPermissions,
     public _alertService: AlertServiceService,
     private camera: Camera,
     public file: File,
@@ -151,18 +151,19 @@ export class HomePage {
     }
 
     this.androidPermissions.checkPermission(this.androidPermissions.PERMISSION.CAMERA).then(
-                success => console.log('SI tiene permiso'),
+                success => console.log('SI tiene permiso', success),
                 err => {
-                    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
-                }
+                    console.log('errorm', err)
+                    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE])
+                  }
             );
 
-    this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
-        .then(
+    this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE])
+    .then(
           result => {
             this.procesarImagen( options );
           },
-          err => this.androidPermissions.requestPermission(this.androidPermissions.PERMISSION.CAMERA)
+          err => this.androidPermissions.requestPermissions([this.androidPermissions.PERMISSION.CAMERA, this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE])
         );
 
   }
